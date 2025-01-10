@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import { Button } from "components/Button/Button"
 import { LP_GRID_ITEMS } from "lp-items"
-
+import Header from '../components/Header/Header'
 export const metadata: Metadata = {
   title: "Next.js Enterprise Boilerplate",
   twitter: {
@@ -21,11 +21,15 @@ export const metadata: Metadata = {
 
 export default function Web() {
   return(
-<section className="bg-[#121212] w-screen gap-8 flex-col h-screen flex justify-center items-center">
-  <p className="text-[#FFFFFF]  sm:text-9xl text-5xl">Exir POS</p>
-  <p className="text-[#2693f3] sm:text-7xl text-3xl">Coming Soon</p>
-</section>
+    <div>
 
+
+<Header />
+<section className="w-screen gap-8 flex-col h-screen flex justify-center items-center bg-light-primary dark:bg-dark-primary">
+  <p className="text-black dark:text-white sm:text-9xl text-5xl">Exir POS</p>
+  <p className="text-light-accent dark:text-dark-accent sm:text-7xl text-3xl">Coming Soon</p>
+</section>
+</div>
   )
   // return (
   //   <>
