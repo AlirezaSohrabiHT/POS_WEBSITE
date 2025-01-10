@@ -21,7 +21,6 @@ const config = withPlugins([[withBundleAnalyzer({ enabled: env.ANALYZE })]], {
       { source: "/ping", destination: "/api/health" },
     ]
   },
-  // output: "export", // Enables static export
 })
 
 export default config
