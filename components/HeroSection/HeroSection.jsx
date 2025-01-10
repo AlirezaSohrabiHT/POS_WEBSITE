@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-screen h-screen flex flex-col justify-center items-center text-dark-text dark:text-dark-text px-4 overflow-hidden">
+    <section  className="relative w-screen h-screen flex flex-col justify-center items-center text-dark-text dark:text-dark-text px-4 overflow-hidden">
       {/* Video and Overlay */}
       <div className="absolute top-0 left-0 w-full h-full -z-10">
         {/* Background Video */}
@@ -25,7 +25,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <h1 className="text-5xl sm:text-7xl font-bold text-center mb-4">
+      <h1 style={{direction: 'rtl'}} className="text-5xl sm:text-7xl font-bold text-center mb-4">
         اکسیر POS
       </h1>
       <p className="text-lg sm:text-2xl text-center mb-8">
