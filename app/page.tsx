@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import { Button } from "components/Button/Button"
 import { LP_GRID_ITEMS } from "lp-items"
 import Header from '../components/Header/Header'
+import HeroSection from '../components/HeroSection/HeroSection'
 export const metadata: Metadata = {
   title: "Next.js Enterprise Boilerplate",
   twitter: {
@@ -25,10 +26,11 @@ export default function Web() {
 
 
 <Header />
-<section className="w-screen gap-8 flex-col h-screen flex justify-center items-center bg-light-primary dark:bg-dark-primary">
+<HeroSection/>
+{/* <section className="w-screen gap-8 flex-col h-screen flex justify-center items-center bg-light-primary dark:bg-dark-primary">
   <p className="text-black dark:text-white sm:text-9xl text-5xl">Exir POS</p>
   <p className="text-light-accent dark:text-dark-accent sm:text-7xl text-3xl">Coming Soon</p>
-</section>
+</section> */}
 </div>
   )
   // return (
