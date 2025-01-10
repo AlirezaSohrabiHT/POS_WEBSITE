@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-screen h-screen flex flex-col justify-center items-center text-dark-text dark:text-light-text px-4 overflow-hidden">
+    <section className="relative w-screen h-screen flex flex-col justify-center items-center text-dark-text dark:text-dark-text px-4 overflow-hidden">
       {/* Video and Overlay */}
       <div className="absolute top-0 left-0 w-full h-full -z-10">
         {/* Background Video */}
@@ -31,20 +32,22 @@ const HeroSection = () => {
         سیستم نقطه فروش اکسیر مناسب برای کافه‌ها، رستوران‌ها و هایپرمارکت‌ها
       </p>
       <div className="flex space-x-4">
-        <button className="px-6 py-3 text-lg font-semibold rounded bg-light-accent dark:bg-dark-accent text-light-text dark:text-dark-text hover:opacity-90 transition-opacity">
+        {/* Link for "تماس با ما" */}
+        <Link
+          href="/contact"
+          className="px-6 py-3 text-lg font-semibold rounded bg-light-accent dark:bg-dark-accent text-light-text dark:text-dark-text hover:opacity-90 transition-opacity"
+        >
           تماس با ما
-        </button>
-        <button className="px-6 py-3 text-lg font-semibold rounded border border-light-accent dark:border-dark-accent text-light-accent dark:text-dark-accent hover:bg-light-accent hover:text-light-text dark:hover:bg-dark-accent dark:hover:text-dark-text transition-all">
+        </Link>
+
+        {/* Link for "درباره ما بیشتر بدانید" */}
+        <Link
+          href="/about"
+          className="px-6 py-3 text-lg font-semibold rounded border border-light-accent dark:border-dark-accent text-light-accent dark:text-dark-accent hover:bg-light-accent hover:text-light-text dark:hover:bg-dark-accent dark:hover:text-dark-text transition-all"
+        >
           درباره ما بیشتر بدانید
-        </button>
+        </Link>
       </div>
-      {/* <div className="mt-12">
-        <img
-          src="/assets/ExirHeroImage.png"
-          alt="Exir POS Preview"
-          className="w-96 h-auto sm:w-[500px] object-contain shadow-lg rounded-lg"
-        />
-      </div> */}
     </section>
   );
 };
