@@ -3,14 +3,46 @@ import { Button } from "components/Button/Button"
 import { LP_GRID_ITEMS } from "lp-items"
 import Header from '../components/Header/Header'
 import HeroSection from '../components/HeroSection/HeroSection'
+import FeatureCard from '../components/FeatureCard/FeatureCard'
 export const metadata: Metadata = {
   title: "سیستم نقطه فروش اکسیر",
 }
 
 export default function Web() {
   return(
+    <div className="overflow-hidden">
+    <HeroSection/>
     <div>
-<HeroSection/>
+            <section className="px-6 py-12">
+        <h2
+          style={{ direction: "rtl" }}
+          className="text-4xl font-extrabold text-center mb-12"
+        >
+          چرا نقطه فروش اکسیر؟
+        </h2>
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <FeatureCard
+            title="ویژگی‌های اکسیر POS"
+            description="سیستم اکسیر POS امکانات بی‌نظیری برای مدیریت فروش و مشتری ارائه می‌دهد."
+            imageSrc="/assets/Exir.png"
+            imageAlt="ویژگی‌های اکسیر POS"
+          />
+          <FeatureCard
+            title="پشتیبانی از پرینتر"
+            description="این سامانه قابلیت اتصال به بیش از ۶ پرینتر به‌صورت همزمان را دارا است."
+            imageSrc="/assets/Exir.png"
+            imageAlt="پشتیبانی از پرینتر"
+          />
+          <FeatureCard
+            title="کارکرد آفلاین"
+            description="سیستم اکسیر POS به شما امکان می‌دهد حتی در صورت قطع اینترنت نیز به کار خود ادامه دهید."
+            imageSrc="/assets/Exir.png"
+            imageAlt="کارکرد آفلاین"
+          />
+        </div>      
+        </section>
+    </div>
+
 </div>
   )
 }
