@@ -24,19 +24,19 @@ export default function Web() {
           <FeatureCard
             title="ویژگی‌های اکسیر POS"
             description="سیستم اکسیر POS امکانات بی‌نظیری برای مدیریت فروش و مشتری ارائه می‌دهد."
-            imageSrc="/assets/Exir.png"
+            imageSrc="/assets/img1.png"
             imageAlt="ویژگی‌های اکسیر POS"
           />
           <FeatureCard
             title="پشتیبانی از پرینتر"
             description="این سامانه قابلیت اتصال به بیش از ۶ پرینتر به‌صورت همزمان را دارا است."
-            imageSrc="/assets/Exir.png"
+            imageSrc="/assets/img1.png"
             imageAlt="پشتیبانی از پرینتر"
           />
           <FeatureCard
             title="کارکرد آفلاین"
             description="سیستم اکسیر POS به شما امکان می‌دهد حتی در صورت قطع اینترنت نیز به کار خود ادامه دهید."
-            imageSrc="/assets/Exir.png"
+            imageSrc="/assets/img1.png"
             imageAlt="کارکرد آفلاین"
           />
         </div>      

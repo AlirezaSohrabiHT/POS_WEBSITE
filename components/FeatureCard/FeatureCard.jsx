@@ -13,7 +13,7 @@ const FeatureCard = ({ title, description, imageSrc, imageAlt }) => {
         <img
           src={imageSrc}
           alt={imageAlt}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain p-2"
         />
       </div>
 
