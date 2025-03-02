@@ -20,7 +20,7 @@ export default function Web() {
         >
           چرا نقطه فروش اکسیر؟
         </h2>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex justify-around">
           <FeatureCard
             title="ویژگی‌های اکسیر POS"
             description="سیستم اکسیر POS امکانات بی‌نظیری برای مدیریت فروش و مشتری ارائه می‌دهد."
