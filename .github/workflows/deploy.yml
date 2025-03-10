@@ -15,12 +15,12 @@ jobs:
 
       - name: Stop Running Container
         run: |
-          cd /containers/next-app
+          cd /containers/exirportal
           docker-compose down || true
 
       - name: Build and Run Next.js App
         run: |
-          cd /containers/next-app
+          cd /containers/exirportal
           docker-compose up -d --build
 
       - name: Cleanup Old Docker Images
