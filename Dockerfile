@@ -1,23 +1,27 @@
-# Use the official Node.js image as the base
-FROM node:18-alpine
+# Use a Node.js base image
+FROM node:18-alpine AS build
 
-# Set working directory
-WORKDIR /app
+# Set working directory inside the container
+WORKDIR /usr/src/app
 
-# Copy package.json and yarn.lock
-COPY package.json yarn.lock ./
+# Copy package.json and package-lock.json first (for efficient caching)
+COPY package.json package-lock.json ./
 
-# Install dependencies using Yarn
-RUN yarn install --frozen-lockfile
+# Install dependencies
+RUN npm install
 
-# Copy the rest of the application files
+# Copy the entire project
 COPY . .
 
-# Build the application
-RUN yarn build
+# Build the React app
+RUN npm run build
 
-# Expose the application port
+# Serve the React app using a lightweight web server (like nginx)
+FROM nginx:alpine
+COPY --from=build /usr/src/app/build /usr/share/nginx/html
+
+# Expose port 3000
 EXPOSE 3000
 
-# Start the application in production mode
-CMD ["yarn", "start"]
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]

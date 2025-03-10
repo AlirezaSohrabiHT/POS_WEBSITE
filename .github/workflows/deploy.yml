@@ -1,0 +1,24 @@
+name: Deploy exirportal
+
+on:
+  push:
+    branches:
+      - main  # Change this if your branch is different
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Stop running container
+        run: |
+          cd /containers/exirportal
+          docker-compose down || true
+
+      - name: Build and run React app
+        run: |
+          cd /containers/exirportal
+          docker-compose up -d --build
