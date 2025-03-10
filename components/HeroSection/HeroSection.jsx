@@ -26,7 +26,7 @@ const HeroSection = () => {
 
       {/* Content */}
       <h1 style={{ direction: "rtl" }} className="text-5xl sm:text-7xl font-bold text-center mb-4">
-        اکسیر POS
+        اکسیر POS 22
       </h1>
       <p className="text-lg sm:text-2xl text-center mb-8">
         سیستم نقطه فروش اکسیر مناسب برای کافه‌ها، رستوران‌ها و هایپرمارکت‌ها
