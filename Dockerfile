@@ -1,27 +1,29 @@
-# Use a Node.js base image
+# Step 1: Use Node.js to build the Next.js app
 FROM node:18-alpine AS build
 
 # Set working directory inside the container
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json first (for efficient caching)
-COPY package.json package-lock.json ./
+# Copy package.json and yarn.lock for dependency installation
+COPY package.json yarn.lock ./
 
-# Install dependencies
-RUN npm install
+# Install dependencies using Yarn
+RUN yarn install --frozen-lockfile
 
-# Copy the entire project
+# Copy the rest of the project files
 COPY . .
 
-# Build the React app
-RUN npm run build
+# Build the Next.js app
+RUN yarn build
 
-# Serve the React app using a lightweight web server (like nginx)
+# Step 2: Use Nginx to serve the built app
 FROM nginx:alpine
-COPY --from=build /usr/src/app/build /usr/share/nginx/html
 
-# Expose port 3000
-EXPOSE 3000
+# Copy the Next.js static output to Nginx public directory
+COPY --from=build /usr/src/app/.next /usr/share/nginx/html
 
-# Start nginx
+# Expose the port
+EXPOSE 80
+
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]

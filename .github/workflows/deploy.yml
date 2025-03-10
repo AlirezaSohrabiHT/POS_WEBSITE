@@ -1,24 +1,27 @@
-name: Deploy exirportal
+name: Deploy Next.js App
 
 on:
   push:
     branches:
-      - main  # Change this if your branch is different
+      - main  # Change if needed
 
 jobs:
-  build-and-deploy:
-    runs-on: self-hosted
+  deploy:
+    runs-on: self-hosted  # Run on your GitHub self-hosted runner
 
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Stop running container
+      - name: Stop Running Container
         run: |
-          cd /containers/exirportal
+          cd /containers/next-app
           docker-compose down || true
 
-      - name: Build and run React app
+      - name: Build and Run Next.js App
         run: |
-          cd /containers/exirportal
+          cd /containers/next-app
           docker-compose up -d --build
+
+      - name: Cleanup Old Docker Images
+        run: docker image prune -f
