@@ -1,6 +1,6 @@
 import "styles/tailwind.css"
 import Header from "../components/Header/Header"
-
+import Footer from "../components/Footer/Footer"
 export const metadata = {
   title: "سیستم نقطه فروش اکسیر",
   description: "اکسیر POS",
@@ -18,6 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <Header /> {/* The Header is now globally visible */}
         {children} {/* Render the content of each page here */}
+        <Footer/>
       </body>
     </html>
   )
