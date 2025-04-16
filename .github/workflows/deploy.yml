@@ -1,27 +1,20 @@
-name: Deploy Next.js App
+name: Jenkins CI/CD Pipeline
 
 on:
   push:
-    branches:
-      - main  # Change if needed
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:  # Allow manual triggering
 
 jobs:
-  deploy:
-    runs-on: self-hosted  # Run on your GitHub self-hosted runner
-
+  trigger-jenkins:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Stop Running Container
-        run: |
-          cd /home/mohajer/containers/exirportal
-          docker-compose down || true
-
-      - name: Build and Run Next.js App
-        run: |
-          cd /home/mohajer/containers/exirportal
-          docker-compose up -d --build
-
-      - name: Cleanup Old Docker Images
-        run: docker image prune -f
+      - name: Trigger Jenkins Job
+        uses: appleboy/jenkins-action@master
+        with:
+          url: "https://jenkins.exirfirm.com"
+          user: "admin"
+          token: ${{ 11fb613ed021f8ca100653082a3d8416c9 }}
+          job: "exirportal-pipeline"  # The name of your Jenkins pipeline job

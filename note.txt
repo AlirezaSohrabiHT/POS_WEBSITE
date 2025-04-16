@@ -1,0 +1,37 @@
+name: Deploy Next.js App
+
+on:
+  push:
+    branches:
+      - main  # Change if needed
+
+jobs:
+  deploy:
+    runs-on: self-hosted  # Run on your GitHub self-hosted runner
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Check Commit Message
+        id: check_commit
+        run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          echo "Commit message: $COMMIT_MESSAGE"
+          if [[ "$COMMIT_MESSAGE" != *"deploy"* ]]; then
+            echo "No deploy keyword found, skipping deployment."
+            exit 1
+          fi
+
+      - name: Stop Running Container
+        run: |
+          cd /home/mohajer/containers/exirportal
+          docker-compose down || true
+
+      - name: Build and Run Next.js App
+        run: |
+          cd /home/mohajer/containers/exirportal
+          docker-compose up -d --build
+
+      - name: Cleanup Old Docker Images
+        run: docker image prune -f
