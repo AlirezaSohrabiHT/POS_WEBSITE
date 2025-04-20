@@ -1,9 +1,8 @@
 import { Metadata } from "next"
 import { Button } from "components/Button/Button"
 import { LP_GRID_ITEMS } from "lp-items"
-import Header from '../components/Header/Header'
-import HeroSection from '../components/HeroSection/HeroSection'
 import FeatureCard from '../components/FeatureCard/FeatureCard'
+import HeroSection from '../components/HeroSection/HeroSection'
 import PricingSection from '../components/PricingSection/PricingSection'
 import TestimonialsSection from '../components/TestimonialsSection/TestimonialsSection'
 export const metadata: Metadata = {

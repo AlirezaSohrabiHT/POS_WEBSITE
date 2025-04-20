@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FaInstagram, FaTelegram, FaPhoneAlt } from "react-icons/fa";
+import { FaInstagram, FaPhoneAlt, FaTelegram } from "react-icons/fa";
 
 const Footer = () => {
   return (

@@ -1,6 +1,6 @@
 import "styles/tailwind.css"
-import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
+import Header from "../components/Header/Header"
 export const metadata = {
   title: "سیستم نقطه فروش اکسیر",
   description: "اکسیر POS",

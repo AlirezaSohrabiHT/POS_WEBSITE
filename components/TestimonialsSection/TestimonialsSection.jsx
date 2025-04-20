@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,7 +61,7 @@ const TestimonialsSection = () => {
             style={{ direction: "rtl" }}
             className="flex-1 bg-light-primary dark:bg-dark-primary text-light-text dark:text-dark-text rounded-2xl shadow-lg p-6 border border-light-secondary dark:border-dark-secondary transition-transform duration-300 hover:scale-[1.02]"
           >
-            <p className="mb-6 text-base leading-7 italic">"{item.comment}"</p>
+            <p className="mb-6 text-base leading-7 italic">&quot;{item.comment}&quot;</p>
             <div className="mt-auto">
               <div className="font-bold text-lg">{item.name}</div>
               <div className="text-sm opacity-75">{item.role}</div>
