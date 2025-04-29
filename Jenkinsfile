@@ -48,7 +48,7 @@ pipeline {
                     mkdir -p /var/www/exirportal
                 fi
                 rm -rf /var/www/exirportal/*
-                cp -r build/* /var/www/exirportal/
+                cp -r out/* /var/www/exirportal/
                 '''
             }
         }
