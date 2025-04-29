@@ -35,6 +35,12 @@ pipeline {
             }
         }
 
+        stage('Install TailwindCSS (if missing)') {
+            steps {
+                sh 'yarn add tailwindcss postcss autoprefixer'
+            }
+        }
+
         stage('Build React App') {
             steps {
                 sh 'npm run build'
