@@ -18,20 +18,15 @@ pipeline {
             }
         }
 
-        stage('Check Node and NPM') {
+        stage('Install Yarn') {
             steps {
-                sh '''
-                echo "Node version:"
-                node -v
-                echo "NPM version:"
-                npm -v
-                '''
+                sh 'npm install -g yarn'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install --force'
+                sh 'yarn install'
             }
         }
 
@@ -43,7 +38,7 @@ pipeline {
 
         stage('Build React App') {
             steps {
-                sh 'npm run build'
+                sh 'yarn build'
             }
         }
 
@@ -54,7 +49,7 @@ pipeline {
                     mkdir -p /var/www/exirportal
                 fi
                 rm -rf /var/www/exirportal/*
-                cp -r out/* /var/www/exirportal/
+                cp -r build/* /var/www/exirportal/
                 '''
             }
         }
