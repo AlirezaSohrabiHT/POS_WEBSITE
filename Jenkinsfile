@@ -18,27 +18,32 @@ pipeline {
             }
         }
 
-        stage('Install Yarn') {
+        stage('Check Node and NPM') {
             steps {
-                sh 'npm install -g yarn'
+                sh '''
+                echo "Node version:"
+                node -v
+                echo "NPM version:"
+                npm -v
+                '''
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                sh 'yarn install'
+                sh 'npm install --force'
             }
         }
 
         stage('Install TailwindCSS (if missing)') {
             steps {
-                sh 'yarn add tailwindcss postcss autoprefixer'
+                sh 'npm install tailwindcss postcss autoprefixer'
             }
         }
 
         stage('Build React App') {
             steps {
-                sh 'yarn build'
+                sh 'npm run build'
             }
         }
 
@@ -49,7 +54,7 @@ pipeline {
                     mkdir -p /var/www/exirportal
                 fi
                 rm -rf /var/www/exirportal/*
-                cp -r build/* /var/www/exirportal/
+                cp -r out/* /var/www/exirportal/
                 '''
             }
         }
