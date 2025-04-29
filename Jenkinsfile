@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs "node20"
+    }
+
     environment {
         NODE_ENV = 'production'
     }
@@ -8,8 +12,9 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/AlirezaSohrabiHT/POS_WEBSITE.git', credentialsId: '1c05b26a-141b-42a6-8210-713e7f0acfbe'
-                // or https if you use HTTPS and token
+                git branch: 'main', 
+                    url: 'https://github.com/AlirezaSohrabiHT/POS_WEBSITE.git', 
+                    credentialsId: '1c05b26a-141b-42a6-8210-713e7f0acfbe'
             }
         }
 
